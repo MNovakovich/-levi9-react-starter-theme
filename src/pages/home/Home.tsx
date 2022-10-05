@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState} from 'react'
+import { AppLayout } from 'components/Layouts'
+import Button from 'components/Button'
 
 const Home = () => {
+    const [ item, setItem] = useState(false)
+
+   
+   
   return (
-    <div>Home</div>
+    <AppLayout>
+        Home
+        <Button /> <br />
+        <button onClick={() =>{
+            setItem(!item);
+        }}>click</button>
+    </AppLayout>
   )
 }
 

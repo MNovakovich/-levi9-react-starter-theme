@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { AppLayout } from 'components/Layouts'
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
+    <AppLayout>AboutUs</AppLayout>
   )
 }
 
