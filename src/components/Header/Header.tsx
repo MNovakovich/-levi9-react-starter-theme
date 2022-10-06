@@ -2,7 +2,7 @@ import CartBadge from 'components/CartBadge';
 import React from 'react'
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/LogoLevi.png';
+import logo from '../../assets/images/logo_transparent.png';
 
 export const Header = () => {
   return (

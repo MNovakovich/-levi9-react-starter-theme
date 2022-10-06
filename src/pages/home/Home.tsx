@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <AppLayout>
         Home
-        <Button /> <br />
-        <button onClick={() =>{
+        <Button onClick={() =>{
             setItem(!item);
-        }}>click</button>
+        }}> Click</Button><br />
+
     </AppLayout>
   )
 }

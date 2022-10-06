@@ -1,11 +1,20 @@
-import React, { memo} from 'react'
-import styles from './styles.module.css';
+import React, { ReactNode } from 'react';
+import { classNames } from '../../utils'
+ import styles from  './styles.module.css';
 
-const Button = () => {
-
+interface IProps {
+  className?:string;
+  children: ReactNode,
+  // All other props
+  [x:string]: any;
+}
+const Button:React.FC<IProps> = ({ children, className='', ...props}) => {
+  const classes = classNames(styles.btn, className)
   return (
-    <button className={styles.btn}>Button</button>
+    <button className={classes} {...props}>
+       { children }
+    </button>
   )
-};
+}
 
-export default memo(Button);
+export default Button;
