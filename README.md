@@ -1,9 +1,6 @@
 ## How to start project:
 * npm run start
 
-
-The main goal is creating simple web application
-
 # Create Pages:
 * Create components
   * Layout
@@ -36,7 +33,7 @@ The main goal is creating simple web application
    T
 
 6) Wishlist page;
-   - 
+   hint:save wishlist items into localStorage
 3) Login Page:
    login form with email & password fields
    
@@ -47,3 +44,19 @@ The main goal is creating simple web application
 * react-query: Hooks for fetching, caching and updating asynchronous data -   https://www.npmjs.com/package/react-query
 
   ### UI Libraries
+1) MATERIAL-UI https://mui.com/material-ui/getting-started/overview/
+2) ANT DESIGN : https://ant.design/docs/react/introduce
+3) REACT-BOOTSTRAP: https://react-bootstrap.github.io/getting-started/introduction
+4) SEMANTIC UI : https://react.semantic-ui.com
+
+## FORM VALIDATION:
+* React-hook-Form: https://react-hook-form.com/
+* FORMIK & YUP: https://formik.org , https://www.npmjs.com/package/yup
+### REACT TYPESCRIPT:
+typescript cheatsheet: https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
+
+ ### IT'S GOOD TO READ:
+1) https://blog.webdevsimplified.com/2022-07/react-folder-structure/
+2) https://andela.com/insights/structuring-your-react-application-atomic-design-principles/
+
+  https://ninetheme.com/themes/styler/fashion/shop/?min_price=10&max_price=190&shop_layouts=left-sidebar
