@@ -1,28 +1,28 @@
 import { useReducer } from 'react';
 
 import { CartContext } from './CartContext';
-import { CartState } from './interfaces';
+
 import { cartReducer } from './CartReducer';
 import fakedata from './fakedata';
 import { IProduct } from 'interfaces';
 
 export type CartContextProps = {
     items: IProduct[];
+    loading:boolean,
     addToCart: ( item:IProduct ) => void;
 } 
 
-const INITIAL_STATE: CartState = {
-    todoCount: 2,
-    items: fakedata,
-    completed: 0,
-    pending: 2
+export interface CartState {
+    items: IProduct[],
+    loading: boolean;
 }
 
-
-
-
+const INITIAL_STATE: CartState = {
+    items: fakedata,
+    loading: false
+}
 interface props {
-    children: JSX.Element | JSX.Element[]
+    children: JSX.Element
 }
 
 export const TodoProvider = ({ children }: props ) => {
@@ -37,6 +37,7 @@ export const TodoProvider = ({ children }: props ) => {
     return (
         <CartContext.Provider value={{
             items:state.items,
+            loading: state.loading,
             addToCart
         }}>
             { children }

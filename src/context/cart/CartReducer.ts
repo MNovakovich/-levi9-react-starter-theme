@@ -1,5 +1,6 @@
-import { CartState } from './interfaces';
+import { CartState } from './CartProvider';
 import { IProduct } from 'interfaces'
+
 type CartAction = 
     | { type: 'getAll' }
     | { type: 'addToCart', payload: IProduct };
@@ -20,7 +21,6 @@ export const cartReducer = ( state: CartState, action: CartAction ): CartState =
                 items: [ ...state.items, action.payload ]
             }
 
-            
         default:
             return state;
     }
