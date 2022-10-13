@@ -1,9 +1,13 @@
 .header {
     padding: 5px;
+   
+    background-color: #1942f5;
+}
+
+.header_content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1942f5;
 }
 
 .mainNav {

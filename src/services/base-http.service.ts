@@ -7,31 +7,31 @@ const BaseHttpService = () => {
   let _accessToken: string | null = null;
 
   const get = async (endpoint:string, options = {}) => {
-    Object.assign(options, _getCommonOptions());
+    options = {...options, ..._getCommonOptions()};
     return await axios.get(`${BASE_URL}/${endpoint}`, options)
       .catch(error => _handleHttpError(error));
   }
 
   const post = async (endpoint:string, data = {}, options = {}) => {
-    Object.assign(options, _getCommonOptions());
+    options = {...options, ..._getCommonOptions()};
     return axios.post(`${BASE_URL}/${endpoint}`, data, options)
       .catch(error => _handleHttpError(error));
   }
 
   const put = async (endpoint:string, data = {}, options = {}) => {
-    Object.assign(options, _getCommonOptions());
+    options = {...options, ..._getCommonOptions()};
     return axios.put(`${BASE_URL}/${endpoint}`, data, options)
       .catch(error => _handleHttpError(error));
   }
 
   const deletee = async (endpoint:string, options = {}) => {
-    Object.assign(options, _getCommonOptions());
+    options = {...options, ..._getCommonOptions()};
     return axios.delete(`${BASE_URL}/${endpoint}`, options)
       .catch(error => _handleHttpError(error));
   }
 
   const patch = async (endpoint:string, data = {}, options = {}) => {
-    Object.assign(options, _getCommonOptions());
+    options = {...options, ..._getCommonOptions()};
     return axios.patch(`${BASE_URL}/${endpoint}`, data, options)
       .catch(error => _handleHttpError(error));
   }
@@ -46,7 +46,6 @@ const BaseHttpService = () => {
   }
 
   const _handle401 = () => {
-  
    // navigate("/about-us");
   }
 
