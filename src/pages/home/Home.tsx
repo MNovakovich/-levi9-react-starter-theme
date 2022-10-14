@@ -42,7 +42,7 @@ const Home = () => {
           {
             fakedata.map((item) => {
               return(
-                <li>
+                <li key={item.id}>
                   {item.title} price: {item.price}{""}
                   <Button onClick={() =>   addToCart({...item, quantity:0})}>Add</Button>{' '}
                 </li>
@@ -55,7 +55,7 @@ const Home = () => {
           {
             cartState.items.map((item) => {
               return(
-                <li>
+                <li key={item.id}>
                   {item.title} quantity: {item.quantity} {""}
                   <Button onClick={() => updateQuantity(item.id, 'plus')}>Plus</Button>{' '}
                   <Button onClick={() => updateQuantity(item.id, 'minus')}>MInus</Button> {" "}

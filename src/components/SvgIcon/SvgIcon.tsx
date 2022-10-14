@@ -13,8 +13,8 @@ interface IProps {
 const SvgIcon = ({
   type,
   className = "",
-  width = 30,
-  height = 30,
+  width,
+  height,
   color,
 }: IProps) => {
     
