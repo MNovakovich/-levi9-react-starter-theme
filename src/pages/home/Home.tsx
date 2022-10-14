@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext } from 'react'
 import { AppLayout } from 'components/Layouts'
 import Button from 'components/Button'
 import { CartContext } from 'context/cart/CartContext';
+import fakedata from 'context/cart/fakedata';
 
 const Home = () => {
     const [ item, setItem] = useState(false)
-    const { items, addToCart } = useContext( CartContext );
+    const { cartState, addToCart, removeCartItem, updateQuantity } = useContext( CartContext );
 
-    console.log(items, 'todo')
+    console.log(cartState, 'todo')
   useEffect(() => {
     getAllProducts();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,16 +32,40 @@ const Home = () => {
             "id": 1,
             "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
             "price": 109.95,
-            "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-            "category": "men's clothing",
+             "quantity":1,
             "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-            "rating": {
-              "rate": 3.9,
-              "count": 120
-            }
+          
           },)
             setItem(!item);
         }}> Click</Button><br />
+       <ul>
+          {
+            fakedata.map((item) => {
+              return(
+                <li>
+                  {item.title} price: {item.price}{""}
+                  <Button onClick={() =>   addToCart({...item, quantity:0})}>Add</Button>{' '}
+                </li>
+              )
+            })
+          }
+       </ul>
+       <hr />
+       <ul>
+          {
+            cartState.items.map((item) => {
+              return(
+                <li>
+                  {item.title} quantity: {item.quantity} {""}
+                  <Button onClick={() => updateQuantity(item.id, 'plus')}>Plus</Button>{' '}
+                  <Button onClick={() => updateQuantity(item.id, 'minus')}>MInus</Button> {" "}
+                  <Button onClick={() => removeCartItem(item.id)}>Remove</Button>
+                </li>
+              )
+            })
+          }
+       </ul>
+       <h2>{cartState.amount}</h2>
     </AppLayout>
   )
 }

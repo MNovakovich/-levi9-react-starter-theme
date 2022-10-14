@@ -1,28 +1,54 @@
-import { CartState } from './CartProvider';
-import { IProduct } from 'interfaces'
+import { CartState } from "./CartProvider";
+import { ICartItem } from "interfaces";
 
-type CartAction = 
-    | { type: 'getAll' }
-    | { type: 'addToCart', payload: IProduct };
+type CartAction =
+  | { type: "getAll"; payload: ICartItem[] }
+  | { type: "addToCart"; payload: ICartItem }
+  | { type: "removeFromCart"; payload: number }
+  | { type: "updateQuantity"; payload: ICartItem[] }
+  | { type: "amountUpdate" };
+
+export const cartReducer = (
+  state: CartState,
+  action: CartAction
+): CartState => {
+    
+  switch (action.type) {
+    case "getAll":
+      return {
+        ...state,
+        items: [...state.items],
+      };
+
+    case "addToCart":
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+      };
+
+    case "removeFromCart":
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload),
+      };
 
 
-export const cartReducer = ( state: CartState, action: CartAction ): CartState => {
+    case "updateQuantity":
+      return {
+        ...state,
+        items: action.payload,
+      };
+      
+    case "amountUpdate":
+      const total = state.items
+        .reduce((acc, item) => acc + item.price * item.quantity, 0)
+        .toFixed(2);
+      return {
+        ...state,
+        amount: Number(total),
+      };
 
-    switch ( action.type ) {
-        case 'getAll':
-            return {
-                ...state,
-                items: [ ...state.items ]
-            }
-
-        case 'addToCart': 
-            return {
-                ...state,
-                items: [ ...state.items, action.payload ]
-            }
-
-        default:
-            return state;
-    }
-
-}
+    default:
+      return state;
+  }
+};
