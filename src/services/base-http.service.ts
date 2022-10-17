@@ -37,21 +37,11 @@ const BaseHttpService = () => {
   }
 
   const _handleHttpError = (error:any) => {
-    const { statusCode } = error.response.data;
-    if (statusCode !== 401) {
-        return error.response;
-      } else {
-        _handle401();
-      }
-  }
-
-  const _handle401 = () => {
-   // navigate("/about-us");
+       return error;
   }
 
   const _getCommonOptions = () => {
     const token = loadToken();
-
     return {
       headers: {
         Authorization: `Bearer ${token}`,
