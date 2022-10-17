@@ -7,43 +7,6 @@
 .cartItems {
     margin-top: 30px;
 }
-.cartItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-top:1px solid #ccc;
-}
-.cartItem:last-child {
-    border-bottom:  1px solid #ccc;
-}
-.cartItem_image {
-   max-width: 50px;
-}
-
-.cartItem_info {
-    min-width: 210px;
-    background-color: red;
-}
-
-.cartItem_title {
-    font-size: 13px;
-    color: green;
-    margin:0;
-}
-.cartItem_priceInfo {
-    font-size: 13px;
-
-    margin:0;
-}
-
-.cartTotal {
-    margin-top: 30px;
-    padding:10px;
-    border:1px solid #ccc
-}
-
-
 
 @media only screen and (max-width: 1024px) {
   .cartPage {

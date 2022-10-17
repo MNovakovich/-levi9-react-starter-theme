@@ -3,10 +3,10 @@ import { AppLayout } from "components/Layouts";
 import Headline from "components/Headline";
 import styles from "./styles.module.css";
 import fakedata from 'context/cart/fakedata';
-import { ICartItem } from "interfaces";
-import QuantityButton from "components/QuantityButton/QuantityButton";
 import { CartContext } from "context/cart/CartContext";
-import SvgIcon from "components/SvgIcon";
+import CartItem from './components/CartItem';
+import CartTotals from "./components/CartTotals";
+
 const CartView = () => {
   const { cartState, removeCartItem, updateQuantity } = useContext(CartContext);
 
@@ -30,67 +30,12 @@ const CartView = () => {
           );
         })}
       </div>
-      <div className={styles.cartTotal}>
-        <h4>Cart totals</h4>
-        <table>
-          <tr>
-            <th>SUBTOTAL</th>
-            <th>$4444</th>
-          </tr>
-          <tbody>
-            <tr>
-              <td>Shipping</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Flat rate:</td>
-              <td>$2.50</td>
-            </tr>
-          </tbody>
-        </table>
-        <table>
-          <tr>
-            <th>TOTAL</th>
-            <th>$1.4444</th>
-          </tr>
-        </table>
-      </div>
+      <CartTotals />
+    
       </div>
     </AppLayout>
   );
 };
 
-interface ICartProps extends ICartItem {
-  onClickHandler: (operation: "plus" | "minus") => void;
-  removeHandler: (id: number) => void;
-}
-
-const CartItem = ({
-  id,
-  title,
-  price,
-  quantity,
-  image,
-  onClickHandler,
-  removeHandler,
-}: ICartProps) => {
-  return (
-    <div className={styles.cartItem}>
-      <img className={styles.cartItem_image} src={image} alt={title} />
-      <div className={styles.cartItem_info}>
-        <p className={styles.cartItem_title}>{title}</p>
-        <span className={styles.cartItem_priceInfo}>
-          ${price} x {quantity}
-        </span>
-      </div>
-      <QuantityButton quantity={quantity} onClickHandler={onClickHandler} />
-      <div>sum: ${(price * quantity).toFixed(2)}</div>
-      <span onClick={() => removeHandler(id)} >
-         <SvgIcon type='remove' width={20} height={20} color="#928F8F" />
-      </span>
-
-    </div>
-  );
-};
 
 export default CartView;
