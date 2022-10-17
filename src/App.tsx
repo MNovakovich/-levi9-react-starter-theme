@@ -1,22 +1,21 @@
-import { Routes, Route } from 'react-router-dom';
-import  { TodoProvider } from './context/cart/CartProvider';
-import { 
-  HomePage,
-  AboutUsPage,
-  NotFoundPage,
-  CartPage
- } from 'pages'
+import { Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/cart/CartProvider";
+// this is example provider
+import { CounterProvider } from "./context/counter/CounterProvider";
+import { HomePage, AboutUsPage, NotFoundPage, CartPage } from "pages";
 
 function App() {
   return (
-    <TodoProvider>
-      <Routes>
-         <Route path="/" element={<HomePage />} />
-         <Route path="/about" element={<AboutUsPage />} /> 
-         <Route path="/cart" element={<CartPage />} />
-         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      </TodoProvider>
+    <CounterProvider>  
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </CartProvider>
+    </CounterProvider>
   );
 }
 

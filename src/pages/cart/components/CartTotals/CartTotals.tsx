@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./styles.module.css";
 
 const CartTotals = () => {
@@ -7,10 +7,12 @@ const CartTotals = () => {
       <div className={styles.cart_content}>
         <h4>Cart totals</h4>
         <table>
-          <tr>
-            <th className={styles.subtotal_title}>SUBTOTAL</th>
-            <th>$4444</th>
-          </tr>
+          <thead>
+            <tr>
+              <th className={styles.subtotal_title}>SUBTOTAL</th>
+              <th>$4444</th>
+            </tr>
+          </thead>
           <tbody className={styles.table_body}>
             <tr>
               <td className={styles.title_head}>Shipping</td>
@@ -24,13 +26,15 @@ const CartTotals = () => {
         </table>
       </div>
       <table>
-        <tr>
-          <th className={styles.title_head}>TOTAL</th>
-          <th>$1.4444</th>
-        </tr>
+        <tfoot>
+          <tr>
+            <th className={styles.title_head}>TOTAL</th>
+            <th>$1.4444</th>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
 };
 
-export default CartTotals;
+export default memo(CartTotals);

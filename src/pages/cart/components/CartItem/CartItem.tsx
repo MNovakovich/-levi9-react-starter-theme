@@ -4,7 +4,6 @@ import { ICartItem } from "interfaces";
 import styles from './styles.module.css';
 
 interface ICartProps extends ICartItem {
-    onClickHandler: (operation: "plus" | "minus") => void;
     removeHandler: (id: number) => void;
   }
   
@@ -14,9 +13,9 @@ const CartItem = ({
     price,
     quantity,
     image,
-    onClickHandler,
     removeHandler,
   }: ICartProps) => {
+
     return (
       <div className={styles.cartItem}>
         <img className={styles.cartItem_image} src={image} alt={title} />
@@ -26,7 +25,7 @@ const CartItem = ({
             ${price} x {quantity}
           </span>
         </div>
-        <QuantityButton quantity={quantity} onClickHandler={onClickHandler} />
+        <QuantityButton quantity={quantity} id={id} />
         <div>sum: ${(price * quantity).toFixed(2)}</div>
         <span onClick={() => removeHandler(id)} >
            <SvgIcon type='remove' width={20} height={20} color="#928F8F" />

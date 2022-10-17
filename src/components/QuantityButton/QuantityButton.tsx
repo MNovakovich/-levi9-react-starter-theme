@@ -1,12 +1,20 @@
-import { FC } from "react";
+import { CartContext } from "context/cart/CartContext";
+import { FC, useContext } from "react";
 import styles from './styles.module.css';
 
 interface IProps {
+  id:number;
   quantity:number;
-  onClickHandler: (operation:'plus' | 'minus') => void;
+  cb?: (operation:'plus' | 'minus') => void;
 }
 
-const QuantityButton:FC<IProps> = ({quantity = 1, onClickHandler}) => {
+const QuantityButton:FC<IProps> = ({id, quantity = 1, cb}) => {
+
+  const {  updateQuantity } = useContext(CartContext);
+  const onClickHandler =(operation: 'plus' | 'minus') => {
+    updateQuantity(id, operation)
+    cb && cb(operation)
+  }
   return (
     <div className={styles.quantity}>
       <span

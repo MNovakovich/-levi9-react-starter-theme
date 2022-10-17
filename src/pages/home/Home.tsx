@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { AppLayout } from 'components/Layouts'
 import Button from 'components/Button'
 import { CartContext } from 'context/cart/CartContext';
-import fakedata from 'context/cart/fakedata';
+import fakedata from 'fakedata';
 
 const Home = () => {
     const [ item, setItem] = useState(false)

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import CartBadge from "components/CartBadge";
 import WishlistBadge from "components/WishlistBadge";
 import styles from "./styles.module.css";
@@ -34,4 +35,4 @@ export const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

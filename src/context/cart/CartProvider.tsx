@@ -28,7 +28,7 @@ interface props {
   children: JSX.Element;
 }
 
-export const TodoProvider = ({ children }: props) => {
+export const CartProvider = ({ children }: props) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
 
   const addToCart = (item: ICartItem) => {
@@ -47,6 +47,7 @@ export const TodoProvider = ({ children }: props) => {
     updateAmount();
   };
   const updateQuantity = (id: number, type: "plus" | "minus") => {
+    if(state.items.length === 0) return;
     const index = state.items.findIndex((item) => item.id === id);
 
     if (type === "plus" && state.items[index].quantity < 10) {
