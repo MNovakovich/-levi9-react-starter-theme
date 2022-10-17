@@ -1,6 +1,6 @@
 import React from "react";
 
-type IconTypes = "cart" | "heart";
+type IconTypes = "cart" | "heart" | "remove";
 
 interface IProps {
   type: IconTypes;
@@ -10,14 +10,7 @@ interface IProps {
   color?: string;
 }
 
-const SvgIcon = ({
-  type,
-  className = "",
-  width,
-  height,
-  color,
-}: IProps) => {
-    
+const SvgIcon = ({ type, className = "", width, height, color }: IProps) => {
   let icon = <path />;
   switch (type) {
     case "cart":
@@ -38,6 +31,24 @@ const SvgIcon = ({
           strokeWidth="2"
           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
         ></path>
+      );
+      break;
+    case "remove":
+      icon = (
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+          ></path>
+        </svg>
       );
       break;
     default: {

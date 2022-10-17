@@ -21,6 +21,11 @@
    max-width: 50px;
 }
 
+.cartItem_info {
+    min-width: 210px;
+    background-color: red;
+}
+
 .cartItem_title {
     font-size: 13px;
     color: green;
