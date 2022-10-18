@@ -1,4 +1,5 @@
 ## How to start project:
+* clone boilerplate: https://github.com/MNovakovich/levi9-react-starter-theme
 * npm run start
 
 ## requirement
@@ -120,3 +121,5 @@
 
 idea for mockup design
 https://ninetheme.com/themes/styler/fashion/shop/?min_price=10&max_price=190&shop_layouts=left-sidebar
+
+https://coruscating-zuccutto-2cd80d.netlify.app/cart

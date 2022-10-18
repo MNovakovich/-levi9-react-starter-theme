@@ -1,13 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 import { classNames } from '../../utils'
  import styles from  './styles.module.css';
 
-interface IProps {
-  className?:string;
+interface IProps extends HTMLAttributes<HTMLButtonElement>{
   children: ReactNode,
-  // All other props
-  [x:string]: any;
 }
+
 const Button:React.FC<IProps> = ({ children, className='', ...props}) => {
   const classes = classNames(styles.btn, className)
   return (

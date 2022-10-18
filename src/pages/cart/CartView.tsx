@@ -1,4 +1,4 @@
-import  { useContext, useCallback } from "react";
+import  { useContext } from "react";
 import { AppLayout } from "components/Layouts";
 import Headline from "components/Headline";
 import styles from "./styles.module.css";
@@ -6,6 +6,7 @@ import fakedata from 'fakedata';
 import { CartContext } from "context/cart/CartContext";
 import CartItem from './components/CartItem';
 import CartTotals from "./components/CartTotals";
+import Button from "components/Button";
 
 const CartView = () => {
   const { cartState, removeCartItem } = useContext(CartContext);
@@ -27,7 +28,11 @@ const CartView = () => {
           );
         })}
       </div>
+      <div className={styles.cartTotalWrapp}>
       <CartTotals />
+      <Button className={styles.proceedBtn}>Proceed to Checkout</Button>
+      </div>
+     
       </div>
     </AppLayout>
   );
