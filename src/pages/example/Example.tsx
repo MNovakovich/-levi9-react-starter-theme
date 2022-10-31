@@ -5,11 +5,13 @@ import { CounterContext } from 'context/counter/CounterContext';
 import { Link } from 'react-router-dom'
 import Button from 'components/Button';
 import styles from './styles.module.css';
+import { useProductsQuery } from 'hooks/useProducts';
 
 const ExamplePage = () => {
 
   const { counterState, addition, subtraction } = useContext( CounterContext );
   const { total } = counterState;
+  const data = useProductsQuery();
   return (
     <AppLayout>
         <Headline title="Example" />
