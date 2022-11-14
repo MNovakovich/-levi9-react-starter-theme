@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { useQuery} from '@tanstack/react-query'
-import ProductsService from 'services/products.service';
+import productsService from 'services/products.service';
 
 interface IProps {
     filterByCategory: (cat:string) => void
 }
 const CategoryList = ({filterByCategory}:IProps) => {
 
-    const productsService = ProductsService();
-    const [selectedCat, setSelectedCat ] = useState<string>('');
+    const [selectedCat, setSelectedCat ] = useState<string>('All');
 
     const query = useQuery(['categories'], productsService.getAllCategories, {
         refetchOnMount: false,
@@ -24,8 +23,8 @@ const CategoryList = ({filterByCategory}:IProps) => {
     <div className="categories">
     <h3>Categories:</h3>
     <ul>
-      <li onClick={() => onClickHandler('all')}>All</li>
-       {data?.map((cat:string, index:number) => {
+      <li style={{color:selectedCat === 'All' ? 'blue': 'black'}} onClick={() => onClickHandler('all')}>All</li>
+       {data?.map((cat:string) => {
         return (<li style={{ color: cat === selectedCat ? 'blue': 'black'}} key={cat} onClick={() => onClickHandler(cat)}>{cat}</li>)
        })}
     </ul>

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import ProductsService from "services/products.service"
+import productService from "services/products.service"
 
 
 export const useProductsQuery = () => {
-    return useQuery(['products'], ProductsService().getAll, {
+    return useQuery(['products'], productService.getAll, {
         // refetchOnMount: false,
         // refetchOnWindowFocus: false,
       })

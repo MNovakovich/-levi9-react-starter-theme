@@ -38,7 +38,6 @@ export default function BasicSelect() {
   
     let key = Number(event.target.value);
     setAge(event.target.value);
-    console.log(sorterList[key])
     productContext.sortBy(sorterList[key])
   };
 

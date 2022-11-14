@@ -1,14 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Grid } from '@mui/material';
-import {
-    useQuery,
-    // useMutation,
-    // useQueryClient,
-    // QueryClient,
-    // QueryClientProvider,
-  } from '@tanstack/react-query'
 import ProductCard from 'components/ProductCard'
-import ProductsService from 'services/products.service';
 import { useProductsQuery } from 'hooks/useProducts';
 import { ProducdtContext } from 'context/product/ProductContext';
 
@@ -17,14 +9,13 @@ interface IProps  {
 }
 const ProductList = ({cardTemplate}: IProps) => {
 
-   // const queryClient = useQueryClient();
    const { productState, getAll } = useContext(ProducdtContext);
    const { filtered } = productState;
-   console.log(filtered)
+   
    useEffect(() => {
     getAll();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-   },[])
+
+   },[getAll])
 
     // Queries
     const queryProduct = useProductsQuery()

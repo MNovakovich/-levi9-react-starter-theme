@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { ProducdtContext } from "./ProductContext";
 import { productReducer } from "./ProductReducer";
 import {  IProduct } from "interfaces";
-import ProductsService from "services/products.service";
+import productServices from "services/products.service";
 
 
 export interface ProductState {
@@ -34,7 +34,8 @@ export const ProductProvider = ({ children }: props) => {
   const getAll = async () => {
     
     try {
-      const data = await ProductsService().getAll();
+      const data = await productServices.getAll();
+      
       dispatch({
         type:'getAll',
         payload: data
