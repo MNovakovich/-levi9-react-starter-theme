@@ -24,7 +24,7 @@ const BaseHttpService = () => {
       .catch(error => _handleHttpError(error));
   }
 
-  const deletee = async (endpoint:string, options = {}) => {
+  const remove = async (endpoint:string, options = {}) => {
     options = {...options, ..._getCommonOptions()};
     return axios.delete(`${BASE_URL}/${endpoint}`, options)
       .catch(error => _handleHttpError(error));
@@ -72,7 +72,7 @@ const BaseHttpService = () => {
     get,
     post,
     put,
-    deletee,
+    remove,
     patch,
     getAccessToken,
     saveToken,
