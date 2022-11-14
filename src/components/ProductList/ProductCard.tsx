@@ -1,9 +1,7 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 interface IProps {
@@ -22,7 +20,7 @@ export default function ProductCard({
     category,
     price
 }:IProps) {
-  console.log(category, 'c')
+ 
   return (
     <Link to={'/products/1'}>
     <Card style={{height:'100%'}}>
@@ -41,8 +39,7 @@ export default function ProductCard({
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button> */}
+
         <p>Cat:{category}</p>
         <span>${price}</span> 
       </CardActions>

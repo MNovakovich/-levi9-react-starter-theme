@@ -31,10 +31,11 @@ const sorterList = [
     }
 ]
 export default function BasicSelect() {
+
   const [age, setAge] = React.useState('');
   const productContext = useContext(ProducdtContext)
   const handleChange = (event: SelectChangeEvent) => {
-    console.log(event.target.value, 'event')
+  
     let key = Number(event.target.value);
     setAge(event.target.value);
     console.log(sorterList[key])
@@ -49,7 +50,7 @@ export default function BasicSelect() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="Age"
+          label="Sort"
           onChange={handleChange}
         >
             {

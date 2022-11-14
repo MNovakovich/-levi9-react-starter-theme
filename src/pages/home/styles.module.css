@@ -1,0 +1,8 @@
+.product_wrapper {
+    margin-top: 20px;
+}
+.filters {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
