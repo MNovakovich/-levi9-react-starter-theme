@@ -1,15 +1,32 @@
-## How to start project:
-* clone boilerplate: https://github.com/MNovakovich/levi9-react-starter-theme
-* npm run start
 
+## How to start project:
+* clone boilerplate from this repo: https://github.com/MNovakovich/levi9-react-starter-theme
+
+* into the root of project install npm packages: 
+   ```sh
+      npm install
+   ```
+
+* Run application localy: 
+   ```sh
+      npm run start
+   ```
+## Api documentation:
+  * https://fakestoreapi.com/docs
+
+   For this challenge we will use the fallowing routes:
+   1) All Products: https://fakestoreapi.com/products
+   2) Single Product: https://fakestoreapi.com/products/1
+   3) Categories:  https://fakestoreapi.com/products/categories
+
+   Bonus:
+   1) Login: https://fakestoreapi.com/auth/login
 ## requirement
 - use some of  UI component libraries
 - use state managment react context or redux 
 - use some of the libraries for workin with forms ( React-hook-Form or Formic)
 # Create Pages:
 * Create components
-  * Layout
-  * Footer
   * Cart Badge ( count of product an price)
 1) Home page : there will be displayed list of products
    * Product cards: each card should have image, price title, and category, add wishlist
@@ -36,14 +53,33 @@
     - Checkout button which will redirect on checkout page
 5) Checkout page:
     with checkout form and order review
-6) Wishlist page;
+
+***Bonus challenge***
+
+1) Wishlist page;
      hint:save wishlist items into localStorage
-3) Login Page:
+2) Login Page:
    login form with email & password fields
-   
+   * Hint!
+     After successful authentication, we need to save jwt token in local storage
+3) User Profile Page
+  Restrict access of user profile page to logged user only
+      
+ * Hint!
+
+   in orter to show user's detail info we need to make additional request on the following api route with id of logged user:
+   https://fakestoreapi.com/users/[user_id]
+
+   The info of  User's id we can find in decoded JWT token as "sub" property and it looks like:
+   ```json
+   {
+   "sub": 2,
+   "user": "mor_2314",
+   "iat": 1668417671
+   }
+   ```
 # USEFUL RESOURCES:
    ###  REST API DATA
-      * full fake REST API  - https://github.com/typicode/json-server
       * AXIOS HTTP Client for  - https://axios-http.com/docs/intro
       * react-query: Hooks for fetching, caching and updating asynchronous data -   https://www.npmjs.com/package/react-query
 
@@ -56,6 +92,8 @@
 ### FORM VALIDATION:
 * React-hook-Form: https://react-hook-form.com/
 * FORMIK & YUP: https://formik.org , https://www.npmjs.com/package/yup
+
+
 ### REACT TYPESCRIPT:
  * typescript cheatsheet: https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
 
