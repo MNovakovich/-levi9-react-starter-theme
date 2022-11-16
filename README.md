@@ -21,6 +21,7 @@
 
    Bonus:
    1) Login: https://fakestoreapi.com/auth/login
+   2) Account Page: https://fakestoreapi.com/users/[user_id]
 ## requirement
 - use some of  UI component libraries
 - use state managment react context or redux 
@@ -56,15 +57,15 @@
 
 ***Bonus challenge***
 
-1) Wishlist page;
-     hint:save wishlist items into localStorage
+1) Wishlist Modal;
+   * hint:
+     save wishlist items into localStorage
 2) Login Page:
    login form with email & password fields
    * Hint!
      After successful authentication, we need to save jwt token in local storage
 3) User Profile Page
   Restrict access of user profile page to logged user only
-      
  * Hint!
 
    in orter to show user's detail info we need to make additional request on the following api route with id of logged user:
@@ -78,6 +79,13 @@
    "iat": 1668417671
    }
    ```
+
+   * How to implement private routes:
+     https://www.robinwieruch.de/react-router-private-routes/
+4) Add Multilanguage Support :
+ * https://react.i18next.com/guides/quick-start
+ * https://locize.com/blog/react-i18next/
+      
 # USEFUL RESOURCES:
    ###  REST API DATA
       * AXIOS HTTP Client for  - https://axios-http.com/docs/intro
@@ -90,7 +98,7 @@
 4) SEMANTIC UI : https://react.semantic-ui.com
 
 ### FORM VALIDATION:
-* React-hook-Form: https://react-hook-form.com/
+* React-hook-Form & YUP: https://react-hook-form.com/
 * FORMIK & YUP: https://formik.org , https://www.npmjs.com/package/yup
 
 
